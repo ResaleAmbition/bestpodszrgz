@@ -113,7 +113,7 @@
 
     <div class="container">
         <h2>Formulario de Pago y Dirección de Envío</h2>
-        <form id="paymentForm" action="javascript:void(0);">
+        <form id="paymentForm">
             <div class="form-group">
                 <label for="direccion">Dirección de Envío:</label>
                 <textarea id="direccion" name="direccion" rows="4" placeholder="Introduce la dirección completa para el envío" required></textarea>
@@ -144,6 +144,9 @@
             const amount = '45.00'; // Actualizado a 45 euros
             const itemName = 'AirPods Pro 2';
             const paypalURL = 'https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=saulfernandezcuartero08@gmail.com&item_name=' + encodeURIComponent(itemName) + '&amount=' + encodeURIComponent(amount) + '&currency_code=EUR';
+
+            // Simula el envío de correo (esto solo es un ejemplo)
+            alert('La dirección de envío será enviada a tu correo electrónico.');
 
             // Redirige a PayPal para completar el pago
             window.location.href = paypalURL;
