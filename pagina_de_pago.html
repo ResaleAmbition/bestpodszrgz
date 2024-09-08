@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Pago</title>
+    <meta name="description" content="Página para procesar pagos y enviar dirección de envío.">
+    <meta name="keywords" content="pago, comprar, dirección de envío">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        header {
+            background-color: #00274d;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            flex: 1;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #00274d;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .submit-button-container {
+            margin: 20px 0;
+        }
+
+        button {
+            background-color: #00274d;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #001a33;
+        }
+
+        .product-image {
+            margin-top: 20px;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #00274d;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Procesar Pago</h1>
+    </header>
+
+    <div class="container">
+        <h2>Formulario de Pago y Dirección de Envío</h2>
+        <form id="paymentForm" action="javascript:void(0);">
+            <div class="form-group">
+                <label for="direccion">Dirección de Envío:</label>
+                <textarea id="direccion" name="direccion" rows="4" placeholder="Introduce la dirección completa para el envío" required></textarea>
+            </div>
+
+            <div class="submit-button-container">
+                <button type="button" onclick="processPayment()">Pagar Ahora</button>
+            </div>
+
+            <div class="product-image">
+                <img src="https://cdn.idealo.com/folder/Product/203255/7/203255713/s11_produktbild_gross/apple-airpods-pro-2-magsafe-case-usb-c.jpg" alt="AirPods Pro 2">
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Best.podszrgz. Todos los derechos reservados.</p>
+        <p>
+            <a href="pagina_compra.html">Volver a la Página del Producto</a> |
+            <a href="politica_privacidad.html">Política de Privacidad</a> | 
+            <a href="terminos_condiciones.html">Términos y Condiciones</a>
+        </p>
+    </footer>
+
+    <script>
+        function processPayment() {
+            const address = document.getElementById('direccion').value;
+            const amount = '45.00'; // Actualizado a 45 euros
+            const itemName = 'AirPods Pro 2';
+            const paypalURL = 'https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=saulfernandezcuartero08@gmail.com&item_name=' + encodeURIComponent(itemName) + '&amount=' + encodeURIComponent(amount) + '&currency_code=EUR';
+
+            // Redirige a PayPal para completar el pago
+            window.location.href = paypalURL;
+        }
+    </script>
+</body>
+</html>
